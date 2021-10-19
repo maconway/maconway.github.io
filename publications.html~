@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mike Conway</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700"
+      rel="stylesheet" type="text/css">
+    <style>
+p { font-size: 1.2em; }
+li {font-size: 1.2em;}
+</style>
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-74379747-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.993.0" data-gr-ext-installed="">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-static-top"
+      role="navigation">
+      <div class="container">
+        <div class="navbar-header"> <button type="button"
+            class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"> <span
+              class="sr-only">Toggle navigation</span> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> </button> <a
+            href="./index.html" class="navbar-brand">Mike Conway</a> </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse"
+          id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./publications.html">Publications</a></li>
+            <li><a href="./people.html">People</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8" style="height">
+          <h2 id="slides">Publications</h2>
+          <p><i>A complete list of publications is available from Mike
+              Conway's <a
+                href="https://scholar.google.com/citations?user=uiJso6MAAAAJ&amp;hl=en">Google
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                Scholar</a> page.<br>
+            </i></p>
+          <h3>2021</h3>
+          <ul>
+            <li>Vaping at the VA:&nbsp; developing an annotated corpus
+              of electronic cigarette mentions in clinical notes at the
+              Department of Veterans Affairs.&nbsp; <b>Conway</b>,
+              Alba, Zhu, Patterson.&nbsp; In <i>Proceedings of the
+                American Medical Informatics Association Symposium.</i>
+              2021.</li>
+            <li>Determining the prevalence of cannabis, tobacco, and
+              vaping device mentions in online communities using natural
+              language processing.&nbsp; Hu, Benson, Chen, Zhu, <b>Conway</b>.&nbsp;
+              <i>Drug &amp; Alcohol Dependence </i>(2021).</li>
+            <li><a moz-do-not-send="true"
+                href="https://journals.sagepub.com/doi/abs/10.1177/10598405211012680">A
+                scoping review and content analysis of common depressive
+                symptoms of young people.&nbsp; </a>Guo, Keeshin, <b>Conway,</b>
+              Chapman, Sward. <i>The Journal of School Nursing </i>(2021).&nbsp;
+              <br>
+            </li>
+            <li><a moz-do-not-send="true"
+href="https://www.sciencedirect.com/science/article/abs/pii/S1532046421001805">Adaptation
+
+
+
+                of an NLP system to a new healthcare environment to
+                identify social determinants of health.</a>&nbsp;
+              Chapman, Reeves, Christensen, Brown, <b>Conway,</b>
+              Levis, Gobbel, Shah, Goodrich, Ricket, Minter, Bohm, Bray,
+              Matheny. <i>Journal of Biomedical Informatics </i>(2021).</li>
+          </ul>
+          <h3>2020</h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://publichealth.jmir.org/2020/3/e19975/">Investigating
+                the attitudes of adolescents and young adults towards
+                JUUL</a>. Benson, Hu, Chen, Nag, Zhu, <b>Conway</b>. <i>JMIR
+                Public Health &amp; Surveillance</i> 6, 3 (2020),
+              e19975. </li>
+            <li><a moz-do-not-send="true"
+                href="https://pubmed.ncbi.nlm.nih.gov/32339929/">Predicting
+                optimal hypertension treatment pathways using recurrent
+                neural networks.</a>&nbsp; Ye, Zeng, Facelli, Brixner, <b>Conway</b>,
+              Bray. <i>International Journal of Medical Informatics</i>
+              139 (2020), 104122. </li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7496257/">Effectiveness
+                of WhatsApp online group discussion for smoking relapse
+                prevention: protocol for a pragmatic randomized
+                controlled trial.&nbsp;</a> Cheung, Chan, Ho, Fok, <b>Conway</b>,
+              Wong, Li, Wang, Lam. <i>Addiction</i> (2020). </li>
+          </ul>
+          <h3>2019<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6697505/">Recent
+                advances in using natural language processing to address
+                public health research questions</a><b><a
+                  moz-do-not-send="true"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6697505/">.&nbsp;</a>
+                Conway</b>, Hu, Chapman. <i>Yearbook of Medical
+                Informatics</i> (2019), pp 208–217. </li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6458709/">Moonstone:
+                a novel natural language processing system for inferring
+                social risk from clinical narratives.</a><b><a
+                  moz-do-not-send="true"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6458709/">&nbsp;</a>
+                Conway</b>, Keyhani, Christensen, South, Vali, Walter,
+              Mowery, Abdelrahman, Chapman. <i>Journal of Biomedical
+                Semantics</i> 10, 1 (2019). </li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6495095/">The
+                PsyTAR dataset:&nbsp; from patient-generated narratives
+                to a corpus of adverse drug events and effectiveness of
+                psychiatric medications.&nbsp;</a> Zolnoori, Fung,
+              Patrick, Fontelo, Kharrazi, Faiola, Wu, Elderedge, Luo, <b>Conway</b>,
+              Zhu, Park, Xu, Moayyed.&nbsp; <i>Data in Brief</i> 24
+              (2019).</li>
+            <li><a moz-do-not-send="true"
+                href="https://escholarship.org/uc/item/5tz6m9n0">Documentation
+                of ENDS use in the Veterans Affairs electronic health
+                record</a><b><a moz-do-not-send="true"
+                  href="https://escholarship.org/uc/item/5tz6m9n0">.&nbsp;</a>
+                Conway</b>, Mowery, South, Stoddard, Chapman, Patterson,
+              Zhu.&nbsp; <i>American Journal of Preventive Medicine </i>56,
+              3 (2019) pp 474-475.</li>
+            <li><a moz-do-not-send="true"
+href="https://www.sciencedirect.com/science/article/pii/S1532046419300012?via%3Dihub">A
+                systematic approach for developing a corpus of patient
+                reported adverse drug events:&nbsp; a case study for
+                SSRI and SNRI medications.</a>&nbsp; Zolnoori, Wah,
+              Patrick, Fontelo, Kharrazi, Faiola, Wu, Eldredge, Luo, <b>Conway</b>,
+              Zhu, Kyung-Park, Xu, Moayyed, Goudarzvand.&nbsp; <i>Journal
+
+
+
+
+
+
+
+
+
+
+
+
+                of Biomedical Informatics</i> (2019),
+              <meta http-equiv="content-type" content="text/html;
+                charset=UTF-8">
+              103091.</li>
+          </ul>
+          <h3>2018<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6194092/">Cross
+                disciplinary consultancy to bridge public health
+                technical needs and analytic developers: negation
+                detection use case.</a> <b>Conway</b>, Mowery, Ising,
+              Velupillai, Doan, Gunn, Donovan, Wiedman, Ballister,
+              Soetebier, Tong, Burkom.&nbsp; <i>Online Journal of
+                Public Health Informatics</i> 10, 2 (2018), e209.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6231734/">Characterizing
+                websites that provide information about complementary
+                and integrative health: systematic search and evaluation
+                of five domains. </a>Chen, Taylor-Swanson, Buie, Park,
+              <b>Conway</b>.&nbsp;<i> Interactive Journal of Medical
+                Internet Research</i> 7, 2 (2018), e14.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6055248/">Exploring
+                physician attitudes regarding electronic documentation
+                of e-cigarette use: a qualitative study.</a>&nbsp;
+              Hurst,<b> Conway</b>.&nbsp; <i>Tobacco Use Insights</i>
+              11 (2018).</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5810583/">Examining
+                thematic similarity, difference, and membership in three
+                online mental health communities from Reddit:&nbsp; a
+                text mining and visualization approach.&nbsp; </a>Park,
+              <b>Conway</b>, Chen. <i>Computers in Human Behavior </i>78
+              (2018) pp 98-112.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5915669/">Harnessing
+                Reddit to understand the written-communication
+                challenges experienced by individuals with mental health
+                disorders:&nbsp; analysis of texts from mental health
+                communities.&nbsp;</a> Park, <b>Conway</b>.&nbsp; <i>Journal
+                of Medical Internet Research</i> 20, 1 (2018), e121.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5487742/">How
+                do you #relax when you're #stressed?&nbsp; a content
+                analysis and infodemiology study of stress-related
+                tweets.&nbsp;</a> Doan, Ritchart, Perry, Chaparro, <b>Conway</b>.&nbsp;
+
+
+
+
+
+
+              <i>JMIR Public Health and Surveillance</i> 3, 2 (2017).</li>
+            <li><a moz-do-not-send="true"
+                href="https://vixra.org/pdf/1804.0494v1.pdf">Applying
+                the transtheoretical model of behavioral change to
+                Reddit data: a pilot study of cessation strategies and
+                outcomes among tobacco users. </a>Mowery, Park, <b>Conway</b>.
+              In <i>UK Healthcare Text Analytics Conference </i>(HealTAC-2018).
+
+
+
+
+
+              2018.<br>
+            </li>
+          </ul>
+          <h3>2017<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5379019/">Longitudinal
+                changes in psychological states in online health
+                community members:&nbsp; understanding the long-term
+                effects of participating in an online depression
+                community.&nbsp;</a> Park, <b>Conway</b>. <i>Journal
+                of Medical Internet Research </i>19, 3 (2017), e71.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5350450/">Understanding
+                depressive symptoms and psychosocial stressors on
+                Twitter:&nbsp; a corpus-based study.&nbsp;</a> Mowery,
+              Coppersmith, Stoddard, Smith, Cheney, <b>Conway</b>.&nbsp;
+
+
+
+
+
+
+
+
+
+
+              Journal of Medical Internet Research 19, 2 (2017), e48.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5251168/">The
+                readability of electronic cigarette health information<br>
+                and advice: a quantitative analysis of web-based
+                information.&nbsp;</a> Park, Zhu, <b>Conway</b>.&nbsp;
+              <i>JMIR Public Health &amp; Surveillance</i> 3, 1 (2017),
+              e1.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4863379/">Extracting
+                a stroke phenotype risk factor from Veteran Health
+                Administration clinical reports: an information content
+                analysis.</a>&nbsp; Mowery, Chapman, <b>Conway</b>,
+              South, Madden, Keyhani, Chapman.&nbsp; <i>Journal of
+                Biomedical Semantics</i> 7 (2017), 26.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W17-3105/">Investigating
+                patient attitudes towards the use of social media data
+                to augment depression diagnosis and treatment: a
+                qualitative study.</a> Mikal, Hurst, <b>Conway</b>. In
+              <i>Proceedings of the Workshop on Computational
+                Linguistics and Clinical Psychology — From Linguistic
+                Signal to Clinical Reality (CLPsych 2017).</i> 2017, pp.
+              41–47.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W17-3103.pdf">A corpus
+                analysis of social connections and social isolation for
+                patients suffering from major depressive disorder in
+                clinical notes.</a> Guo, Mowery, Sward, <b>Conway</b>.&nbsp;
+
+
+
+
+
+
+
+              In <i>Proceedings of the Workshop on Computational
+                Linguistics and Clinical Psychology — From Linguistic
+                Signal to Clinical Reality (CLPsych 2017).</i> 2017, pp.
+              26–31.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W17-2335.pdf">Investigating
+
+
+
+
+
+
+
+                the documentation of electronic cigarette use in the
+                Veteran Affairs electronic health record: a pilot study.
+              </a>Mowery, South, Patterson, Zhu, <b>Conway</b>. In <i>Proceedings
+
+
+
+
+
+
+
+                of the Workshop on Current Trends in Biomedical Natural
+                Language Processing, Vancouver (BioNLP 2017)</i>. 2017.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5977623/">Tracking
+
+
+
+
+
+
+
+                health-related discussions on Reddit for public health<br>
+                applications.</a>&nbsp; Park, <b>Conway</b>.&nbsp; In <i>Proceedings
+
+
+
+
+
+
+
+                of the American Medical Informatics Association
+                Symposium.</i> 2017, pp 1362–1371.</li>
+            <li><a moz-do-not-send="true"
+                href="https://arxiv.org/abs/1701.08229">Feature studies
+                to inform the classification of depressive symptoms
+                from&nbsp; Twitter data for population health.</a>&nbsp;
+              Mowery, Bryan, <b>Conway</b>.&nbsp; In <i>Proceedings of
+                the</i><i> WSDM 2017 Workshop on Mining Online Health
+                Reports.</i> 2017.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5333198/">Understanding
+                patient satisfaction with received healthcare services:
+                a natural language processing approach.</a>&nbsp;
+              Doing-Harris, Mowery, Daniels, Chapman, <b>Conway</b>. In
+              <i>Proceedings of the American Medical Informatics
+                Association Symposium.</i> 2016, pp 524–533.<br>
+            </li>
+          </ul>
+          <h3>2016<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+href="https://bmcmedethics.biomedcentral.com/articles/10.1186/s12910-016-0105-5">Ethical
+                issues in using Twitter for population-level depression
+                monitoring:&nbsp; a qualitative study.</a>&nbsp; Mikal,
+              Hurst, <b>Conway</b>.&nbsp; <i>BMC Medical Ethics </i>17,
+              1 (2016).</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4815031/">Social
+                media, big data, and mental health:&nbsp; current
+                advances and ethical implications.&nbsp;</a> <b>Conway</b>,
+              O'Connor.&nbsp; <i>Current Opinion in Psychology </i>9
+              (2016) pp 77-82.</li>
+            <li><a moz-do-not-send="true"
+href="https://jbiomedsem.biomedcentral.com/articles/10.1186/s13326-015-0043-z">Developing
+                a web-based SKOS editor.</a>&nbsp; <b>Conway</b>,
+              Khojoyan, Fana, Scuba, Tharp, Chapman, Jupp.&nbsp; <i>Journal
+
+
+
+
+
+
+
+
+
+
+                of Biomedical Semantics</i> 7, 5 (2016).</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W16-4320.pdf">Towards
+                automatically classifying depressive symptoms from
+                Twitter data for population health. </a>Mowery, Park, <b>Conway</b>.
+              In <i>PEOPLES: Computational Modeling of People’s
+                Opinions, Personality, and Emotions in Social Media.</i>
+              2016, pp 182–191.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W16-2912.pdf">Vocabulary
+                development to support information extraction of
+                substance abuse from psychiatry notes.</a> Velupillai,
+              Mowery, <b>Conway</b>, Hurdle, Kious. In <i>Proceedings
+                of the Workshop on Current Trends in Biomedical Natural
+                Language Processing, Berlin (BioNLP 2016).</i> 2016, pp
+              92–101.</li>
+            <li><a moz-do-not-send="true"
+                href="http://pages.cs.wisc.edu/~gangluo/chronic_kidney_disease.pdf">Dietary
+                management software for chronic kidney disease: current
+                status and open issues. </a>Chen, Murtaugh, Koebnick,
+              Beddhu, Garvin, <b>Conway</b>, Lee, Gouripeddi, Luo. In <i>The
+                38th Annual International Conference of the</i><i><br>
+              </i><i>IEEE Engineering in Medicine and Biology Society
+                (EMBC’16)</i>. 2016, pp 62–72.</li>
+            <li><a moz-do-not-send="true"
+                href="https://ieeexplore.ieee.org/abstract/document/7752271">From
+                event detection to story telling on microblogs.
+              </a> Kalyanam, Velupillai, <b>Conway</b>, Lanckriet.
+              &nbsp; <i>Proceedings of the ACM/IEEE Conference on
+                Advances in Social</i><i> Network Analysis and Mining</i>,
+              2016, 437–442.<br>
+            </li>
+          </ul>
+          <h3>2015</h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4731225/">Cross-disciplinary
+                consultancy to bridge public health technical needs and
+                solution development expertise: asyndromic surveillance
+                use case.&nbsp;</a> Faigen, Deyneka, Ising, Neill, <b>Conway</b>,
+              Fairchild, Gunn, Swenson, Painter, Johnson, Kiley,
+              Streichert, Burkom.&nbsp; <i>Online Journal of Public
+                Health Informatics </i>7, 3 (2015).</li>
+            <li><a moz-do-not-send="true"
+href="https://www.sciencedirect.com/science/article/pii/S1532046415002415">Crowdsourcing
+                Twitter annotations to identify first-hand experiences
+                of prescription drug effects.&nbsp;</a> Alvaro, <b>Conway</b>,
+              Doan, Lofi, Overington, Collier.&nbsp; <i>Journal of
+                Biomedical Informatics</i> 58 (2015) pp 280-287.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4642380/">What
+                online communities can tell us about electronic
+                cigarettes and hookah use:&nbsp; a study using text
+                mining techniques.&nbsp;</a> Chen, Zhu, <b>Conway</b>.&nbsp;
+              <i>Journal of Medical Internet Research</i> 17, 9 (2015),
+              e220.</li>
+            <li><a moz-do-not-send="true"
+href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0139701">Using
+                social media for actionable disease surveillance:&nbsp;
+                systematic literature review. </a>Cameron,
+              Charles-Smith, <b>Conway</b>, Corley, Lau, Olsen, Pavlin,
+              Reynolds, Shigematsu, Streichert, Suda, Valkova.&nbsp; <i>PLoS
+
+
+
+
+
+
+
+                One</i> 10, 10, (2015), e0139701.</li>
+            <li><a moz-do-not-send="true"
+href="https://www.ingentaconnect.com/content/trsg/trs/2015/00000001/00000003/art00001;jsessionid=hxivk73lnpc9.x-ic-live-03">Consumer
+                attitudes towards hookah, cigarettes, and cigars:&nbsp;
+                applying topic modelling to Twitter data.</a>&nbsp;
+              Jain, Zhu, <b>Conway</b>.&nbsp; <i>Tobacco Regulatory
+                Science</i> 6, 3 (2015) pp 198-203.</li>
+            <li><a moz-do-not-send="true"
+                href="https://arxiv.org/abs/1508.02079">Facts and
+                fabrications about Ebola: A Twitter-based study.</a>
+              Kalyanam, Velupillai, Doan, <b>Conway</b>, Lanckriet. In
+              <i>BigCHat: Connected Health at Big Data</i><i> Era — A
+                KDD 2015 Workshop.</i> 2015.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W15-1211.pdf">Towards
+                Developing an Annotation Scheme for Depressive Disorder
+                Symptoms: A preliminary study using Twitter data. </a>Mowery,
+              Bryan, <b>Conway</b>. In <i>Proceedings of the 2015
+                Workshop on Computational Linguistics and Clinical
+                Psychology — From Linguistic Signal to Clinical Reality.</i>
+              2015, pp 89–98.<br>
+            </li>
+          </ul>
+          <h3>2014<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4285736/">Ethical
+                issues in using Twitter for public health surveillance
+                and research:&nbsp; developing a taxonomy of ethical
+                concepts from the research literature.&nbsp;</a> <b>Conway</b>.&nbsp;
+
+
+
+
+
+
+
+              <i>Journal of Medical Internet Research</i>&nbsp; 16, 12
+              (2014), e290.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3912702/">PhenDisco:&nbsp;
+                phenotype discovery systems for the database of
+                genotypes and phenotypes (dbGAP).</a>&nbsp; Doan, Lin, <b>Conway</b>,
+              Hsieh, Feudjio-Feupe, Garland, Ross, Jiang, Farzaneh,
+              Walker, Alipanah, Xu, Kim. <i>Journal of the American
+                Medical Informatics Association</i> 21 (2014) pp 31-36.</li>
+            <li><a moz-do-not-send="true"
+                href="https://arxiv.org/ftp/arxiv/papers/1401/1401.0569.pdf">Natural
+                language processing systems in biomedicine: a unified
+                system architecture overview.</a> Doan, <b>Conway</b>,
+              Phuong, Ohno-Machado.&nbsp; vol. 1168 <i>Methods in
+                Molecular Biology</i>. Springer, (2014) pp 275–294. <br>
+            </li>
+            <li><a moz-do-not-send="true"
+href="https://www.visualanalyticshealthcare.org/docs/VAHC2014_proceedings.pdf">Text
+                mining and visualization to explore e-cigarette and
+                hookah-related social media.</a> Chen, Zhu, <b>Conway</b>.
+              In <i>Proceedings of the 2014 Workshop on Visual
+                Analytics in Health Care. </i>2014, pp 68–69.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.zora.uzh.ch/id/eprint/98982/103/ProceedingsSMBM14.pdf">Developing
+                a web-based SKOS editor. </a><b>Conway</b>, Fana,
+              Tharp, Scuba, Chapman, Jupp.&nbsp; In <i>Proceedings of
+                the 6th International Symposium on Semantic Mining in
+                Biomedicine (SMBM 2014)</i>. 2014, pp 105–108.<br>
+            </li>
+          </ul>
+          <h3>2013<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0076384">Feasibility
+                of using clinical element models (CEM) to standardize
+                phenotype variables in dbGAP.&nbsp;</a> Lin, <b>Conway</b>,
+              Kim, Kim.&nbsp; <i>PLoS One</i> 8, 9 (2013), e76384.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3758063/">Using
+                Twitter to examine smoking behaviour and perceptions of
+                emerging tobacco products.</a> Myslin, Zhu, Chapman, <b>Conway</b>.
+              <i>Journal of Medical Internet Research</i> 15, 8 (2013).</li>
+            <li><a moz-do-not-send="true"
+                href="https://pubmed.ncbi.nlm.nih.gov/23926434/">Text
+                categorization of heart, lung and blood studies in the
+                database of Genotypes and Phenotypes (dbGaP) utilizing
+                n-grams and metadata features.</a> Ross, Lin, Truong,
+              Kuman, <b>Conway</b>. <i>Biomedical Informatics Insights</i>
+              6, (2013) pp 35-45.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3741452/">Using
+                chief complaints for syndromic surveillance:&nbsp; a
+                review of chief complaint classifiers in North America.
+              </a><b>Conway</b>, Dowling, Chapman. <i>Journal of
+                Biomedical Informatics</i> 46, 4 (2013) pp 734–43.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900203/">Identifying
+                synonymy between SNOMED clinical terms of varying length
+                using distributional analysis of electronic health
+                records. </a>Henriksson, <b>Conway</b>, Hassel,
+              Chapman.&nbsp; In <i>Proceedings of the American Medical
+                Informatics Association Symposium</i>. 2013, pp 600–609.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W13-1905.pdf">Corpus-driven
+                terminology development: populating Swedish SNOMED CT
+                with synonyms extracted from electronic health records.</a>
+              Henriksson, Skeppstedt, Kvist, Duneld, <b>Conway.</b>&nbsp;
+
+
+
+              <i>Proceedings of the Twelfth Workshop on Biomedical
+                Natural Language Processing, Sofia (2013)</i>, pp 36–44.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3923890/">Extending
+                the NegEx lexicon for multiple languages.</a> Chapman,
+              Hilert, Velupillai, Kvist, Skeppstedt, Chapman, <b>Conway,</b>
+              Tharp, Mowery, Deleger. In <i>Proceedings of the 14th
+                World Congress on Medical and Health Informatics
+                (MedInfo 2013). </i>2013, pp 677–681.<br>
+            </li>
+          </ul>
+          <h3>2012</h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://ieeexplore.ieee.org/document/6366187">Demographics
+                identification: variable extraction resource (DIVER).</a>&nbsp;
+              Hsieh, Doan, <b>Conway</b>, Lin, Kim. In <i>Proceedings
+                of the Second IEEE Conference on Healthcare Informatics,
+                Imaging and Systems Biology, San Diego. </i>2012, pp
+              40–49. [<a moz-do-not-send="true" href="PDF/DIVER.pdf">PDF</a>]<br>
+            </li>
+          </ul>
+          <h3>2011</h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3243189/">Analyzing
+                the heterogeneity and complexity of electronic health
+                record orientated phenotyping algorithms.</a> <b>Conway</b>,
+              Berg, Carrell, Denny, Kho, Kullo, Linneman, Pacheco,
+              Peissig, Rasmussen, Weston, Chute, Pathak. &nbsp; In <i>Proceedings
+
+
+
+                of the American Medical Informatics Association
+                Symposium.</i> 2011, pp 274–283.</li>
+            <li><a moz-do-not-send="true"
+                href="http://ceur-ws.org/Vol-744/paper10.pdf">Developing
+                an application ontology for mining free text clinical
+                reports: the extended syndromic surveillance ontology.</a>
+              <b>Conway</b>, Dowling, Chapman. In <i>Proceedings of the
+                Third International Workshop on Health Document Text
+                Mining and Information</i><i> Analysis, Slovenia (LOUHI
+                2011).</i> 2011, pp 75–82.<br>
+            </li>
+          </ul>
+          <h3>2010<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2995670/">Developing
+                syndrome definitions based on consensus and current
+                use.&nbsp; </a>Chapman, Dowling, Baer, Buckeridge,
+              Cochrane, <b>Conway</b>, Elkin, Espino, Gunn, Hales,
+              Hutwagner, Keller, Larson, Noe, Okhmoatovskaia, Olson,
+              Paladini, Scholer, Sniegoski, Thompson, Lober.&nbsp; <i>Journal
+
+
+
+
+
+
+
+
+
+
+                of the American Medical Informatics Association </i>17,
+              5 (2010) pp 595–601.</li>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2956322/">Developing
+                a disease outbreak event corpus.&nbsp;</a> <b>Conway</b>,
+              Kawazoe, Chanlekha, Collier. <i>Journal of Medical
+                Internet Research</i> 12, 3 (2010), e43.</li>
+            <li><a moz-do-not-send="true"
+                href="https://academic.oup.com/dsh/article-abstract/25/1/23/926040">Mining
+                a corpus of biographical text using keywords.</a>&nbsp;
+              <b>Conway</b>.&nbsp; <i>Literary &amp; Linguistic
+                Computing </i>25, 1 (2010) pp 23-35. [<a
+                moz-do-not-send="true"
+                href="PDF/MiningACorpusOfBiographicalTexts.pdf">PDF</a>]<br>
+            </li>
+            <li><a moz-do-not-send="true"
+                href="https://dl.acm.org/doi/10.1145/1882992.1883070">Leveraging
+                the semantic web and natural language processing to
+                enhance drug mechanism knowledge in drug product
+                labels.&nbsp; </a>Boyce, Harkema, <b>Conway</b>. In <i>Proceedings
+
+
+
+                of the 2010 ACM International Health Informatics
+                Symposium, Arlington, VA.</i> 2010, pp 492–496.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W10-3307.pdf">Developing
+                a biosurveillance application ontology for
+                influenza-like-illness. </a><b>Conway</b>, Dowling,
+              Chapman.&nbsp; In <i>Proceedings of the 6th Workshop on
+                Ontologies and Lexical Resources, Beijing.</i> 2010, pp
+              58–66.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/C10-1025.pdf">An
+                ontology-driven system for detecting global health
+                events.&nbsp;</a> Collier, Matsuda-Goodwin, McCrae,
+              Doan, Kawazoe, <b>Conway</b>, Kawtrakul, Takeuchi, Dien.
+              In <i>Proceedings of the 23rd International Conference on
+                Computational</i><i><br>
+              </i><i>Linguistics, Beijing (COLING 2010). </i>2010, pp
+              215–222. <br>
+            </li>
+          </ul>
+          <h3>2009<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://pubmed.ncbi.nlm.nih.gov/19447070/">Classifying
+                disease outbreak reports using n-grams and semantic
+                features.</a> <b>Conway</b>, Doan, Kawazoe, Collier.
+              &nbsp;<i> International Journal of Medical Informatics</i>
+              78, 12 (2009) pp 47–58. [<a moz-do-not-send="true"
+                href="PDF/ClassifyingDiseaseOutbreakReports.pdf">PDF</a>]<br>
+            </li>
+            <li><a moz-do-not-send="true"
+href="https://www.sciencedirect.com/science/article/pii/S1532046408001494?via%3Dihub">Towards
+                role-based filtering of disease outbreak reports.</a>&nbsp;
+              Doan, Kawazoe, <b>Conway</b>, Collier.&nbsp; <i>Journal
+                of Biomedical Informatics</i> 42, 5 (2009) pp 773–780.</li>
+            <li><a moz-do-not-send="true"
+href="https://www.taylorfrancis.com/chapters/edit/10.1201/b10315-20/navigating-information-storm-web-based-global-health-surveillance-biocaster-nigel-collier-son-doan-reiko-matsuda-goodwin-john-mccrae-mike-conway-mika-shigematsu-ai-kawazoe">Navigating
+                the information storm: web-based global health
+                surveillance in BioCaster.</a> Collier, Doan,
+              Matsuda-Goodwin, McCray, <b>Conway</b>, Shigematsu,
+              Kawazoe.&nbsp; In<i> Biosurveillance: A Health Protection
+                Priority</i>, T. Kass-Hout and<br>
+              X. Zhang, Eds. CRC (2009) ch. 15, pp 291–312.</li>
+            <li><a moz-do-not-send="true"
+                href="https://arxiv.org/ftp/arxiv/papers/1911/1911.09319.pdf">An
+                empirical study of sections in classifying disease
+                outbreak reports. </a>Doan, <b>Conway</b>,
+              Collier.&nbsp; In <i>Web-based Applications in Health
+                Care and Biomedicine,</i> A. Lazakidou, Ed., vol. 7 of
+              Annals of Information Systems. Springer (2009) pp 47–58.</li>
+            <li><a moz-do-not-send="true"
+                href="https://aclanthology.org/W09-1318.pdf">Using
+                hedges to enhance a disease outbreak report text mining
+                system.</a> <b>Conway</b>, Doan, Collier. In <i>Proceedings
+
+
+
+                of the Workshop on Current Trends in Biomedical Natural
+                Language Processing, Boulder (BioNLP 2009).</i> 2009, pp
+              142–143.</li>
+            <li><a moz-do-not-send="true"
+href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.504.3807&amp;rep=rep1&amp;type=pdf">Classifying
+                disease outbreak reports using n-grams and semantic
+                features</a>. <b>Conway</b>,Doan, Kawazoe, Collier. In <i>Proceedings of the Third
+                International Symposium on Semantic Mining in
+                Biomedicine (SMBM 2008), Turku, Finland.</i> 2008, pp
+              29–36.<br>
+            </li>
+          </ul>
+          <h3>2008<br>
+          </h3>
+          <ul>
+            <li><a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2639299/">BioCaster:
+                detecting public health rumors with a web-based text
+                mining<br>
+                system.</a>&nbsp; Collier, Doan, Kawazoe,
+              Matsuda-Goodwin, <b>Conway</b>, Tateno, Ngo, DIen,
+              Kawtrakul, Takeuchi, Shigematsu, Taniguichi. &nbsp; <i>Bioinformatics</i>
+              24, 24 (2008) pp 2940–2941.<br>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.container --> </div>
+  </body>
+</html>
