@@ -1,0 +1,13 @@
+Workflow for website:
+
+git commit -am "Insert comment here"
+git push
+
+
+Plan for website:
+
+1. [x] Update pubs
+2. [x] Update news
+3. [x] Add Teaching (courses, resources, instructions for PhD students)
+4. [x] Add Misc (including grants, bookmarks, reading, journal club)
+5. [ ]  Add to "people" page

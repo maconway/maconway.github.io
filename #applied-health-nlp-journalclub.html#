@@ -109,6 +109,11 @@ li {font-size: 1.2em;}
 
 
 
+
+
+
+
+
                 of clinical notes</span><br style="box-sizing: inherit;
                 color: rgb(29, 28, 29); font-family: Slack-Lato,
                 appleLogo, sans-serif; font-size: 15px; font-style:
@@ -143,6 +148,11 @@ li {font-size: 1.2em;}
                 rgb(248, 248, 248); text-decoration-thickness: initial;
                 text-decoration-style: initial; text-decoration-color:
                 initial; display: inline !important; float: none;">Medical
+
+
+
+
+
 
 
 
@@ -187,6 +197,11 @@ li {font-size: 1.2em;}
 
 
 
+
+
+
+
+
                 question answering</span><br style="box-sizing: inherit;
                 color: rgb(29, 28, 29); font-family: Slack-Lato,
                 appleLogo, sans-serif; font-size: 15px; font-style:
@@ -221,6 +236,11 @@ li {font-size: 1.2em;}
                 rgb(248, 248, 248); text-decoration-thickness: initial;
                 text-decoration-style: initial; text-decoration-color:
                 initial; display: inline !important; float: none;">Integration
+
+
+
+
+
 
 
 
@@ -406,6 +426,11 @@ li {font-size: 1.2em;}
 
 
 
+
+
+
+
+
                 regulatory, and ethical issues in Health NLP research</span></li>
           </ul>
           <p>Paper selection will be driven by the current research
@@ -429,6 +454,11 @@ li {font-size: 1.2em;}
                 href="https://pubmed.ncbi.nlm.nih.gov/26338219/">Combining
 
 
+
+
+
+
+
                 billing codes, clinical notes, and medications from
                 electronic health records provides superior phenotyping
                 performance</a>. J Am Med Inform Assoc. 2016 Apr;23(e1)</li>
@@ -439,10 +469,60 @@ li {font-size: 1.2em;}
                 linguistic characteristics of Alzheimer's dementia by
                 interpreting neural models</a>.&nbsp; NAACL 2018<br>
             </li>
-            <li><strong> Meeting 3:&nbsp; </strong>Monday 28th
-              Mar@11am-12.15pm</li>
-            <li><strong> Meeting 4:&nbsp; </strong>Monday 25th
-              Apr@11am-12.15pm</li>
+            <li><strong> Meeting 3:&nbsp; </strong>Monday&nbsp;9th
+              May@11am-12.15pm.&nbsp; Antonio Jose Jimeno Yepes
+              presented Kury et al.&nbsp; <a moz-do-not-send="true"
+                href="https://www.nature.com/articles/s41597-020-00620-0">Chia,
+
+
+
+                a large annotated corpus of clinical trial eligibility
+                criteria</a>.&nbsp; Scientific Data. 2020. 7:281<a
+                moz-do-not-send="true"
+                href="https://www.nature.com/articles/s41597-020-00620-0"><br>
+              </a></li>
+            <li><b>Meeting 4:&nbsp; </b>Monday 23rd
+              May@11am-12.15.&nbsp; Vlada Rozova presented Kim et
+              al.&nbsp; <a moz-do-not-send="true"
+                href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7679382/">Validation
+
+
+                of deep learning natural language processing algorithm
+                for keyword extraction from pathology reports in
+                electronic health records</a>.&nbsp; Scientific Reports.
+              2020. 10:20265<br>
+            </li>
+            <li><b>Meeting 5:&nbsp; </b>Monday 4th
+              Jul@11am-12.15.&nbsp; Jinghui Liu presented Dong et
+              al.&nbsp; <a moz-do-not-send="true"
+                href="https://arxiv.org/abs/2203.11092/">Automated
+                clinical coding: what, why, and where we are?</a> ArXiv
+              preprint 2022<br>
+            </li>
+            <li><b>Meeting 6:&nbsp; </b>Monday 18th
+              Jul@11am-12.15.&nbsp; Vlada Rozova presented Varoquaux and
+              Cheplygina&nbsp; <a moz-do-not-send="true"
+                href="https://arxiv.org/abs/2203.11092/">Machine
+                learning for medical imaging: methodological failures
+                and recommendations for the future?</a> NPJ Digital
+              Medicine. 2022 5(48)</li>
+            <li><b>Meeting 7:</b> Monday 15th Aug@11am-12.15.&nbsp; Mike
+              Conway presented Ford et al. <a moz-do-not-send="true"
+                href="https://pubmed.ncbi.nlm.nih.gov/32457202/">Should
+                free-text data in electronic medical records be shared
+                for research?&nbsp; A citizens' jury study in the
+                UK.&nbsp;</a> J Med Ethics. 2020 46(6) <br>
+            </li>
+            <li>
+              <meta http-equiv="content-type" content="text/html;
+                charset=UTF-8">
+              <b>Meeting 8:</b>&nbsp; Monday 12th Sep@11am-12.15.
+              Jinghui Liu presented Jain et al.&nbsp; <a
+                moz-do-not-send="true"
+                href="https://arxiv.org/abs/2106.14463">RadGraph:
+                Extracting clinical entities and relations from
+                radiology reports.</a>&nbsp; ArXiv. 2021<br>
+            </li>
           </ul>
           <p><strong> </strong><strong><br>
             </strong></p>
