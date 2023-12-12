@@ -49,13 +49,17 @@ li {font-size: 1.2em;}
       </div>
     </nav>
     <!-- Page Content -->
-    <div class="container">
-      <h2>Miscellaneous</h2>
+      <div class="container">
+          <div class="row">
+        <div class="col-md-8" style="height">
+          <h2 id="slides">Miscellaneous</h2>
+     
       <h4>Current Funding (PI/co-PI/site-PI)<br>
       </h4>
       <ul>
         <li><a moz-do-not-send="true"
 href="https://reporter.nih.gov/search/8fj3FonUhkmn4fpyysoHYA/project-details/10508469">R21
+
 
             DA056684</a>, National Institute on Drug Abuse. Using
           narratives to identify stigma phenotypes - a socio-ecological
@@ -71,12 +75,14 @@ href="https://reporter.nih.gov/search/8fj3FonUhkmn4fpyysoHYA/project-details/105
         <li><a moz-do-not-send="true"
 href="https://reporter.nih.gov/search/Ux3wJmkr5EyjkY4gKux_Wg/project-details/9530020">R21
 
+
             DA047578</a>, National Institute on Drug Abuse.&nbsp;
           Exploring the evolving relationship between tobacco,
           marijuana, and e-cigarettes. Role: PI<br>
         </li>
         <li><a moz-do-not-send="true"
 href="https://reporter.nih.gov/search/uXW85J49Y0KJeL_QQzRzow/project-details/9652537">R03
+
 
             DA047577</a>, National Institute on Drug Abuse.
           Investigating the documentation of electronic cigarettes in
@@ -88,6 +94,7 @@ href="https://reporter.nih.gov/search/uXW85J49Y0KJeL_QQzRzow/project-details/965
         </li>
         <li><a moz-do-not-send="true"
 href="https://reporter.nih.gov/search/1V_FqebcrkSagN5FHCooiA/project-details/8894203">R00
+
 
             LM0113933</a>, National Library of Medicine. Utilizing
           social media as a resource for mental health surveillance.
@@ -101,11 +108,19 @@ href="https://reporter.nih.gov/search/1V_FqebcrkSagN5FHCooiA/project-details/889
         interested in the application of NLP to social media to support
         health research.&nbsp; More details <a moz-do-not-send="true"
           href="applied-health-nlp-journalclub.html">here</a>.&nbsp;
-        Please email me (<a href="mailto:mike.conway@unimelb.edu.au">"mike.conway@unimelb.edu.au)</a> if you are
-        interested in attending.<br>
+        Please email me (<a href="mailto:mike.conway@unimelb.edu.au">mike.conway@unimelb.edu.au)</a>
+        if you are interested in attending.<br>
+      </p>
+      <h4>Reading</h4>
+      <p>I am attempting to document some of the books that I
+        read.&nbsp; Here's my list for <a moz-do-not-send="true"
+          href="./READING/2022.html">2022</a>.<br>
       </p>
       <p><br>
       </p>
-      <!-- /.container --> </div>
+    </div>
+            </div>
+      </div>
+
   </body>
 </html>
