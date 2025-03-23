@@ -28,3 +28,7 @@ Sep 2024
 3. [x] Update publication list
 
 
+Mar 2025
+1. [] Add Hokkaido Feb meeting
+2. [] Add recent publications
+3. [] Add masters student (Grace, Damian)
