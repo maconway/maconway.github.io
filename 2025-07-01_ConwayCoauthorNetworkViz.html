@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Conway's Co-Author Network</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: calc(100vw - 24px);
+            height: calc(100vh - 24px);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 4px;
+            font-size: 1.8em;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+        
+        .career-selector {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .career-btn {
+            padding: 6px 14px;
+            border: 2px solid #3498db;
+            background: white;
+            color: #3498db;
+            border-radius: 18px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+        
+        .career-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .career-btn.active {
+            background: #3498db;
+            color: white;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .career-info {
+            text-align: center;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .career-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 2px;
+        }
+        
+        .career-details {
+            color: #7f8c8d;
+            font-size: 0.8em;
+        }
+        
+        #network {
+            width: 100%;
+            flex-grow: 1;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            background: #fafbfc;
+            position: relative;
+            overflow: hidden;
+            min-height: 0;
+        }
+        
+        .node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .node:hover {
+            stroke-width: 3px;
+        }
+        
+        .link {
+            stroke-opacity: 0.4;
+            transition: all 0.3s ease;
+        }
+        
+        .node-label {
+            font-size: 8px;
+            font-weight: 500;
+            text-anchor: middle;
+            pointer-events: none;
+            fill: #2c3e50;
+        }
+        
+        .central-node {
+            stroke-width: 4px;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 8px;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+        
+        .control-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: background 0.3s ease;
+        }
+        
+        .control-btn:hover {
+            background: #229954;
+        }
+        
+        .zoom-btn {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            padding: 5px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: background 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .zoom-btn:hover {
+            background: #8e44ad;
+        }
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            color: #555;
+        }
+        
+        .slider {
+            width: 120px;
+            height: 4px;
+            border-radius: 2px;
+            background: #ddd;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3498db;
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3498db;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .legend {
+            margin-top: 8px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+            flex-shrink: 0;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin: 2px 8px;
+            font-size: 10px;
+            color: #555;
+        }
+        
+        .legend-circle {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 3px;
+            vertical-align: middle;
+        }
+        
+        .tooltip {
+            position: absolute;
+            padding: 5px 8px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            border-radius: 4px;
+            font-size: 10px;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mike Conway's Co-Author Network</h1>
+            <div class="subtitle">Generated 1st July 2025</div>
+            
+            <div class="career-selector">
+                <button class="career-btn active" data-stage="all">All Career</button>
+                <button class="career-btn" data-stage="2007-2014">2007-2014</button>
+                <button class="career-btn" data-stage="2015-2021">2015-2021</button>
+                <button class="career-btn" data-stage="2021-2025">2021-2025</button>
+            </div>
+            
+            <div class="career-info" id="career-info">
+                <div class="career-title">Complete Career Overview</div>
+                <div class="career-details">111 Publications • 300 Unique Co-Authors • 516 Total Collaborations</div>
+            </div>
+        </div>
+        
+        <div id="network"></div>
+        
+        <div class="controls">
+            <button class="control-btn" onclick="resetSimulation()">Reset Position</button>
+            <button class="control-btn" onclick="toggleLabels()">Toggle Labels</button>
+            
+            <div class="slider-container">
+                <button class="zoom-btn" onclick="zoomOut()">−</button>
+                <span>Zoom:</span>
+                <input type="range" class="slider" id="zoomSlider" min="0.2" max="3" value="1" step="0.1">
+                <span id="zoomValue">1.0x</span>
+                <button class="zoom-btn" onclick="zoomIn()">+</button>
+            </div>
+            
+            <div class="slider-container">
+                <span>Highlight top:</span>
+                <input type="range" class="slider" id="highlightSlider" min="5" max="30" value="15" step="1">
+                <span id="sliderValue">15</span>
+                <button class="control-btn" onclick="highlightTopCollaborators()">Apply</button>
+                <button class="control-btn" onclick="clearHighlight()">Clear</button>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-circle" style="background: #e74c3c;"></span>
+                Mike Conway (Central Node)
+            </div>
+            <div class="legend-item">
+                <span class="legend-circle" style="background: #3498db;"></span>
+                Frequent Collaborators (5+ papers)
+            </div>
+            <div class="legend-item">
+                <span class="legend-circle" style="background: #27ae60;"></span>
+                Regular Collaborators (3-4 papers)
+            </div>
+            <div class="legend-item">
+                <span class="legend-circle" style="background: #f39c12;"></span>
+                Occasional Collaborators (1-2 papers)
+            </div>
+        </div>
+        
+        <div class="generation-date" id="generation-date"></div>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Updated career stage data including the 4 miscellaneous non-peer-reviewed papers
+        const careerStages = {
+            "2007-2014": {
+                start: 2007, end: 2014,
+                publications: 29,
+                coAuthors: [
+                    {name: "Doan S", count: 11}, {name: "Collier N", count: 10}, {name: "Chapman W", count: 9}, {name: "Kawazoe A", count: 7},
+                    {name: "Lin K", count: 4}, {name: "Kim H", count: 4}, {name: "Dowling J", count: 4}, {name: "Henriksson A", count: 2},
+                    {name: "Hsieh A", count: 2}, {name: "Kim J", count: 2}, {name: "Zhu S", count: 2}, {name: "Ross M", count: 2},
+                    {name: "Tharp M", count: 2}, {name: "Truong K", count: 1}, {name: "Kumar A", count: 1}, {name: "Skeppstedt M", count: 1},
+                    {name: "Velupillai S", count: 1}, {name: "Mowery D", count: 1}, {name: "Deleger L", count: 1}, {name: "Fana F", count: 1},
+                    {name: "Scuba W", count: 1}, {name: "Jupp S", count: 1}, {name: "Baer A", count: 1}, {name: "Buckeridge D", count: 1},
+                    {name: "Cochrane D", count: 1}, {name: "Elkin P", count: 1}, {name: "Espino J", count: 1}, {name: "Gunn J", count: 1},
+                    {name: "Hales C", count: 1}, {name: "Hutwagner L", count: 1}, {name: "Keller M", count: 1}, {name: "Larson C", count: 1},
+                    {name: "Noe R", count: 1}, {name: "Okhmoatovskaia A", count: 1}, {name: "Olson K", count: 1}, {name: "Paladini M", count: 1},
+                    {name: "Scholer M", count: 1}, {name: "Sniegoski C", count: 1}, {name: "Thompson D", count: 1}, {name: "Lober B", count: 1},
+                    {name: "Chanlekha H", count: 1}, {name: "Matsuda-Goodwin R", count: 1}, {name: "Tateno Y", count: 1}, {name: "Ngo Q-H", count: 1},
+                    {name: "Dien D", count: 1}, {name: "Kawtrakul A", count: 1}, {name: "Takeuchi K", count: 1}, {name: "Shigematsu M", count: 1},
+                    {name: "Taniguichi K", count: 1}, {name: "Berg R", count: 1}, {name: "Carrell D", count: 1}, {name: "Denny J", count: 1},
+                    {name: "Kho A", count: 1}, {name: "Kullo I", count: 1}, {name: "Linneman J", count: 1}, {name: "Pacheco J", count: 1},
+                    {name: "Peissig P", count: 1}, {name: "Rasmussen L", count: 1}, {name: "Weston N", count: 1}, {name: "Chute C", count: 1},
+                    {name: "Pathak J", count: 1}, {name: "Boyce R", count: 1}, {name: "Harkema H", count: 1}, {name: "McCrae J", count: 1},
+                    {name: "McCrea J", count: 1}, {name: "Feudjio-Feupe S", count: 1}, {name: "Garland A", count: 1}, {name: "Jiang X", count: 1},
+                    {name: "Farzaneh S", count: 1}, {name: "Walker R", count: 1}, {name: "Alipanah N", count: 1}, {name: "Xu H", count: 1},
+                    {name: "Hassel M", count: 1}, {name: "Chapman B", count: 1}, {name: "Kvist M", count: 1}, {name: "Duneld M", count: 1},
+                    {name: "Hilert D", count: 1}, {name: "Myslin M", count: 1}, {name: "Chen A", count: 1}, {name: "Zhu S-H", count: 1},
+                    {name: "Alvaro N", count: 1}, {name: "Lofi C", count: 1}, {name: "Overington J", count: 1}, {name: "Cameron M", count: 1},
+                    {name: "Charles-Smith L", count: 1}, {name: "Corley C", count: 1}, {name: "Lau E", count: 1}, {name: "Olsen J", count: 1},
+                    {name: "Pavlin J", count: 1}, {name: "Reynolds T", count: 1}, {name: "Streichert L", count: 1}, {name: "Suda K", count: 1},
+                    {name: "Valkova L", count: 1}, {name: "Jain S", count: 1}, {name: "Phuong T", count: 1}, {name: "Ohno-Machado L", count: 1},
+                    {name: "McCray J", count: 1}
+                ],
+                color: "#9b59b6"
+            },
+            "2015-2021": {
+                start: 2015, end: 2021,
+                publications: 47, // Updated: 43 + 4 additional
+                coAuthors: [
+                    {name: "Mowery D", count: 14}, {name: "Chapman W", count: 12}, {name: "Zhu S-H", count: 9}, {name: "Park A", count: 9},
+                    {name: "Chen A", count: 6}, {name: "South B", count: 5}, {name: "Velupillai S", count: 4}, {name: "Doan S", count: 4},
+                    {name: "Hu M", count: 4}, {name: "Benson R", count: 4}, {name: "Keyhani S", count: 3}, {name: "Christensen L", count: 3},
+                    {name: "Mikal J", count: 3}, {name: "Hurst S", count: 3}, {name: "Bryan C", count: 2}, {name: "Stoddard G", count: 2},
+                    {name: "Chapman B", count: 2}, {name: "Madden E", count: 2}, 
+                    // Additional co-authors from miscellaneous papers
+                    {name: "Verspoor K", count: 1}, {name: "Cohen K", count: 1}, {name: "de Brujin B", count: 1}, {name: "Dredze M", count: 1}, 
+                    {name: "Mihalcea R", count: 1}, {name: "Wallace B", count: 1}, {name: "Collier N", count: 1}, {name: "Limsopatham N", count: 1}, 
+                    {name: "Culotta A", count: 1}, {name: "Cox I", count: 1}, {name: "Lampos V", count: 1},
+                    // Existing co-authors continue...
+                    {name: "Coppersmith G", count: 1}, {name: "Smith H", count: 1}, {name: "Cheney T", count: 1}, {name: "O'Connor D", count: 1}, 
+                    {name: "Khojoyan A", count: 1}, {name: "Fana F", count: 1}, {name: "Scuba W", count: 1}, {name: "Tharp M", count: 1}, 
+                    {name: "Jupp S", count: 1}, {name: "Faigen Z", count: 1}, {name: "Deyneka L", count: 1}, {name: "Ising A", count: 1}, 
+                    {name: "Neill D", count: 1}, {name: "Fairchild G", count: 1}, {name: "Gunn J", count: 1}, {name: "Swenson D", count: 1}, 
+                    {name: "Painter I", count: 1}, {name: "Johnson L", count: 1}, {name: "Kiley C", count: 1}, {name: "Streichert L", count: 1}, 
+                    {name: "Burkom H", count: 1}, {name: "Alvaro N", count: 1}, {name: "Lofi C", count: 1}, {name: "Overington J", count: 1}, 
+                    {name: "Cameron M", count: 1}, {name: "Charles-Smith L", count: 1}, {name: "Corley C", count: 1}, {name: "Lau E", count: 1}, 
+                    {name: "Olsen J", count: 1}, {name: "Pavlin J", count: 1}, {name: "Reynolds T", count: 1}, {name: "Shigematsu M", count: 1}, 
+                    {name: "Suda K", count: 1}, {name: "Valkova L", count: 1}, {name: "Jain S", count: 1}, {name: "Zhu S", count: 1}, 
+                    {name: "Doing-Harris K", count: 1}, {name: "Daniels C", count: 1}, {name: "Hurdle J", count: 1}, {name: "Kious B", count: 1}, 
+                    {name: "Chen X", count: 1}, {name: "Murtaugh M", count: 1}, {name: "Koebnick C", count: 1}, {name: "Beddhu S", count: 1}, 
+                    {name: "Garvin J", count: 1}, {name: "Lee Y", count: 1}, {name: "Gouripeddi R", count: 1}, {name: "Luo G", count: 1}, 
+                    {name: "Kalyanam J", count: 1}, {name: "Lanckriet G", count: 1}, {name: "Taylor-Swanson L", count: 1}, {name: "Buie R", count: 1}, 
+                    {name: "Donovan M", count: 1}, {name: "Wiedeman C", count: 1}, {name: "Ballister L", count: 1}, {name: "Soetebier K", count: 1}, 
+                    {name: "Tong C", count: 1}, {name: "Ritchart A", count: 1}, {name: "Perry N", count: 1}, {name: "Chaparro J", count: 1}, 
+                    {name: "Vali M", count: 1}, {name: "Walter L C", count: 1}, {name: "Abdelrahman S", count: 1}, {name: "Zolnoori M", count: 1}, 
+                    {name: "Fung K", count: 1}, {name: "Patrick T", count: 1}, {name: "Fontelo P", count: 1}, {name: "Kharrazi H", count: 1}, 
+                    {name: "Faiola A", count: 1}, {name: "Wu Y", count: 1}, {name: "Eldredge C", count: 1}, {name: "Luo J", count: 1}, 
+                    {name: "Zhu J", count: 1}, {name: "Park S", count: 1}, {name: "Xu K", count: 1}, {name: "Moayyed H", count: 1}, 
+                    {name: "Patterson O", count: 1}, {name: "Wah Fung K", count: 1}, {name: "Shuan Shirley Wu Y", count: 1}, 
+                    {name: "Kyung Park S", count: 1}, {name: "Goudarzvand S", count: 1}, {name: "Keeshin B", count: 1}, {name: "Sward K", count: 1}, 
+                    {name: "Nag S", count: 1}, {name: "Ye X", count: 1}, {name: "Zeng Q", count: 1}, {name: "Facelli J", count: 1}, 
+                    {name: "Brixner D", count: 1}, {name: "Bray B", count: 1}, {name: "Cheung Y T D", count: 1}, {name: "Chan C H H", count: 1}, 
+                    {name: "Ho K S", count: 1}, {name: "Fok W-Y P", count: 1}, {name: "Wong C K H", count: 1}, {name: "Li W H C", count: 1}, 
+                    {name: "Wang M P", count: 1}, {name: "Lam T H", count: 1}, {name: "Reeves R", count: 1}, {name: "Brown J", count: 1}, 
+                    {name: "Levis M", count: 1}, {name: "Gobbel G", count: 1}, {name: "Shah R", count: 1}, {name: "Goodrich C", count: 1}, 
+                    {name: "Ricket I", count: 1}, {name: "Minter F", count: 1}, {name: "Bohm A", count: 1}, {name: "Matheny M", count: 1}, 
+                    {name: "Alba P", count: 1}
+                ],
+                color: "#3498db"
+            },
+            "2021-2025": {
+                start: 2021, end: 2025,
+                publications: 37, // Updated: 35 + 2 additional
+                coAuthors: [
+                    {name: "Chen A", count: 7}, {name: "Cabrera-Lozoya D", count: 6}, {name: "D'Alfonso S", count: 4}, {name: "Liu J", count: 4}, // Liu J increased from 3 to 4
+                    {name: "Johnny S", count: 3}, {name: "Wong S", count: 3}, {name: "Zhu S", count: 3}, {name: "Khademi S", count: 3},
+                    {name: "Hallinan C M", count: 3}, {name: "Bonomo Y", count: 3}, {name: "Kang J", count: 2}, {name: "Haslam N", count: 2},
+                    {name: "Almeida A", count: 2}, {name: "Borquez A", count: 2}, {name: "Ahmad Z", count: 2}, {name: "Mohamed A", count: 2},
+                    {name: "Maskat R", count: 2}, {name: "Naskar A", count: 2}, {name: "Chen L", count: 2}, {name: "Chapman B", count: 2}, // Chapman B increased from 1 to 2
+                    // Additional co-authors from miscellaneous papers
+                    {name: "Curran D", count: 1}, {name: "Rozova V", count: 1},
+                    // Existing co-authors continue...
+                    {name: "Pethani F", count: 1}, {name: "Chapman A", count: 1}, {name: "Dai X", count: 1}, {name: "Bishay D", count: 1}, 
+                    {name: "Choh V J X", count: 1}, {name: "He A", count: 1}, {name: "Lim S-E", count: 1}, {name: "Ng H Y", count: 1}, 
+                    {name: "Mahony T", count: 1}, {name: "Yaacoub A", count: 1}, {name: "Karimi S", count: 1}, {name: "Spallek H", count: 1}, 
+                    {name: "Dunn A G", count: 1}, {name: "Banks E", count: 1}, {name: "Scollo M", count: 1}, {name: "Gartner C", count: 1}, 
+                    {name: "Freeman B", count: 1}, {name: "Brown S", count: 1}, {name: "Campbell S", count: 1}, {name: "Yazidjoglou A", count: 1}, 
+                    {name: "Grelotti D", count: 1}, {name: "Gupta A", count: 1}, {name: "Frank D", count: 1}, {name: "Wang L", count: 1}, 
+                    {name: "Chaliparambil R", count: 1}, {name: "Glass J", count: 1}, {name: "Patton T", count: 1}, {name: "Strathdee S A", count: 1}, 
+                    {name: "Pierce J", count: 1}, {name: "Grace K", count: 1}, {name: "Mikal J", count: 1}, {name: "Roesler D", count: 1}, 
+                    {name: "Chen A T", count: 1}, {name: "Scotti Requena S", count: 1}, {name: "Pirkis J", count: 1}, {name: "Currier D", count: 1}, 
+                    {name: "Lee S", count: 1}, {name: "Turnure J", count: 1}, {name: "Cummins R", count: 1}, {name: "Nicholas A", count: 1}, 
+                    {name: "Cheung D Y T", count: 1}, {name: "Chan H C H", count: 1}, {name: "Wong C K H", count: 1}, {name: "Li W H C", count: 1}, 
+                    {name: "Wang M P", count: 1}, {name: "Lam T H", count: 1}, {name: "Hallinan C", count: 1}, {name: "Bonomo Y A", count: 1}, 
+                    {name: "Benson R", count: 1}, {name: "Winterton C", count: 1}, {name: "Winn M", count: 1}, {name: "Krick B", count: 1}, 
+                    {name: "Liu M", count: 1}, {name: "Abu-el rub N", count: 1}, {name: "Del Fiol G", count: 1}, {name: "Gawron A", count: 1}, 
+                    {name: "Hardikar S", count: 1}, {name: "Hu M", count: 1}, {name: "Citrenbaum C", count: 1}, {name: "Vuong T", count: 1}, 
+                    {name: "Hark K", count: 1}, {name: "Rohrwasser A", count: 1}, {name: "Eilbeck K", count: 1}, {name: "Zhu S-H", count: 1}, 
+                    {name: "Hernandez Lua E", count: 1}, {name: "Barajas Perches J", count: 1}, {name: "Robinson J", count: 1}, 
+                    {name: "Wong J", count: 1}, {name: "Hemmy L", count: 1}, {name: "Zakaria R", count: 1}, {name: "Teo N", count: 1}, 
+                    {name: "Berazaluce A", count: 1}, {name: "Perches J", count: 1}, {name: "Lua E", count: 1}, {name: "Hocking J", count: 1}, 
+                    {name: "Chondros P", count: 1}, {name: "Boyle D", count: 1}, {name: "Pu Y", count: 1}, {name: "Hair K", count: 1}, 
+                    {name: "Beck D", count: 1}, {name: "MacLeod M", count: 1}, {name: "Verspoor K", count: 1}, {name: "Rhoads J", count: 1}, 
+                    {name: "Christensen L", count: 1}, {name: "Westerdahl S", count: 1}, {name: "Stevens V", count: 1}, {name: "Chapman W", count: 1}, 
+                    {name: "Alba P", count: 1}, {name: "Gan Q", count: 1}, {name: "Sherman S", count: 1}, {name: "Duvall S", count: 1}
+                ],
+                color: "#2ecc71"
+            }
+        };
+
+        // Current state
+        let currentStage = "all";
+        let showLabels = true;
+        let simulation;
+        let currentNodes = [];
+        let currentLinks = [];
+        let zoom;
+        let zoomGroup;
+
+        // Get full container dimensions
+        const container = document.getElementById('network');
+        let width, height;
+
+        function updateDimensions() {
+            const containerRect = container.getBoundingClientRect();
+            width = containerRect.width - 4; // Account for border
+            height = containerRect.height - 4;
+        }
+
+        updateDimensions();
+        
+        const svg = d3.select("#network")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create zoom group
+        zoomGroup = svg.append("g");
+
+        // Setup zoom behavior
+        zoom = d3.zoom()
+            .scaleExtent([0.2, 3])
+            .on("zoom", handleZoom);
+
+        svg.call(zoom)
+           .on("dblclick.zoom", null); // Disable double-click zoom
+
+        // Color scales
+        const collaborationColorScale = d3.scaleOrdinal()
+            .domain(["central", "frequent", "regular", "occasional"])
+            .range(["#e74c3c", "#3498db", "#27ae60", "#f39c12"]);
+
+        // Slider functionality
+        const highlightSlider = document.getElementById('highlightSlider');
+        const sliderValue = document.getElementById('sliderValue');
+        const zoomSlider = document.getElementById('zoomSlider');
+        const zoomValue = document.getElementById('zoomValue');
+        
+        highlightSlider.addEventListener('input', function() {
+            sliderValue.textContent = this.value;
+        });
+
+        zoomSlider.addEventListener('input', function() {
+            const scale = parseFloat(this.value);
+            zoomValue.textContent = scale.toFixed(1) + 'x';
+            
+            // Apply zoom transform
+            const currentTransform = d3.zoomTransform(svg.node());
+            const newTransform = d3.zoomIdentity
+                .translate(currentTransform.x, currentTransform.y)
+                .scale(scale);
+            
+            svg.transition()
+                .duration(300)
+                .call(zoom.transform, newTransform);
+        });
+
+        function handleZoom(event) {
+            const { transform } = event;
+            zoomGroup.attr("transform", transform);
+            
+            // Update zoom slider
+            zoomSlider.value = transform.k;
+            zoomValue.textContent = transform.k.toFixed(1) + 'x';
+        }
+
+        function zoomIn() {
+            svg.transition()
+                .duration(300)
+                .call(zoom.scaleBy, 1.3);
+        }
+
+        function zoomOut() {
+            svg.transition()
+                .duration(300)
+                .call(zoom.scaleBy, 1 / 1.3);
+        }
+
+        // Initialize visualization
+        updateVisualization("all");
+        
+        // Set generation date
+        const now = new Date();
+        const dateString = now.toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            timeZone: 'Australia/Melbourne'
+        });
+        
+
+        // Event handlers
+        document.querySelectorAll('.career-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.career-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const stage = this.dataset.stage;
+                updateVisualization(stage);
+            });
+        });
+
+        function updateVisualization(stage) {
+            currentStage = stage;
+            
+            // Update dimensions
+            updateDimensions();
+            svg.attr("width", width).attr("height", height);
+            
+            // Clear existing visualization
+            zoomGroup.selectAll("*").remove();
+            
+            // Reset zoom
+            svg.call(zoom.transform, d3.zoomIdentity);
+            zoomSlider.value = 1;
+            zoomValue.textContent = '1.0x';
+            
+            // Update info panel
+            updateInfoPanel(stage);
+            
+            // Prepare data - INCLUDE ALL CO-AUTHORS
+            const { nodes, links } = prepareData(stage);
+            currentNodes = nodes;
+            currentLinks = links;
+            
+            // Create simulation with improved centering forces
+            const linkDistance = Math.max(25, Math.min(60, 400 / Math.sqrt(nodes.length)));
+            const chargeStrength = stage === "all" ? -80 : -120;
+            
+            simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(linkDistance).strength(0.8))
+                .force("charge", d3.forceManyBody().strength(d => d.type === "central" ? -1000 : chargeStrength))
+                .force("center", d3.forceCenter(width / 2, height / 2).strength(1.2))
+                .force("collision", d3.forceCollide().radius(d => getNodeSize(d) + 2))
+                .force("x", d3.forceX(width / 2).strength(0.1))
+                .force("y", d3.forceY(height / 2).strength(0.1));
+
+            // Create links in zoom group
+            const link = zoomGroup.append("g")
+                .selectAll("line")
+                .data(links)
+                .enter()
+                .append("line")
+                .attr("class", "link")
+                .attr("stroke", "#95a5a6")
+                .attr("stroke-width", d => Math.max(0.3, Math.sqrt(d.value) * 0.6));
+
+            // Create nodes in zoom group - ensure Mike Conway is always red
+            const node = zoomGroup.append("g")
+                .selectAll("circle")
+                .data(nodes)
+                .enter()
+                .append("circle")
+                .attr("class", d => d.type === "central" ? "node central-node" : "node")
+                .attr("r", getNodeSize)
+                .attr("fill", d => getNodeColor(d, stage))
+                .attr("stroke", "#fff")
+                .attr("stroke-width", d => d.type === "central" ? 3 : 1.5)
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended))
+                .on("mouseover", showTooltip)
+                .on("mouseout", hideTooltip);
+
+            // Create labels in zoom group - show labels for green and orange nodes
+            const labels = zoomGroup.append("g")
+                .selectAll("text")
+                .data(nodes)
+                .enter()
+                .append("text")
+                .attr("class", "node-label")
+                .attr("dy", 3)
+                .text(d => {
+                    if (d.type === "central") return "Mike Conway";
+                    // Show labels for all nodes with 2+ collaborations OR if network is small
+                    if (nodes.length <= 40 || d.count >= 2) return d.name;
+                    return "";
+                });
+
+            // Update simulation
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                labels
+                    .attr("x", d => d.x)
+                    .attr("y", d => d.y);
+            });
+        }
+
+        function prepareData(stage) {
+            const nodes = [{id: "Conway M", name: "Mike Conway", count: 0, type: "central"}];
+            const links = [];
+
+            if (stage === "all") {
+                // Combine all stages - INCLUDE ALL CO-AUTHORS
+                const allCoAuthors = {};
+                Object.values(careerStages).forEach(stageData => {
+                    stageData.coAuthors.forEach(author => {
+                        allCoAuthors[author.name] = (allCoAuthors[author.name] || 0) + author.count;
+                    });
+                });
+
+                Object.entries(allCoAuthors).forEach(([name, count]) => {
+                    nodes.push({id: name, name: name, count: count, type: "collaborator"});
+                    links.push({source: "Conway M", target: name, value: count});
+                });
+            } else {
+                // Single stage - INCLUDE ALL CO-AUTHORS
+                const stageData = careerStages[stage];
+                stageData.coAuthors.forEach(author => {
+                    nodes.push({
+                        id: author.name, 
+                        name: author.name, 
+                        count: author.count, 
+                        type: "collaborator",
+                        stage: stage
+                    });
+                    links.push({source: "Conway M", target: author.name, value: author.count});
+                });
+            }
+
+            return { nodes, links };
+        }
+
+        function updateInfoPanel(stage) {
+            const infoDiv = document.getElementById('career-info');
+
+            if (stage === "all") {
+                infoDiv.innerHTML = `
+                    <div class="career-title">Complete Career Overview</div>
+                    <div class="career-details">111 Publications • 300 Unique Co-Authors • 516 Total Collaborations</div>
+                `;
+            } else {
+                const stageData = careerStages[stage];
+                const uniqueCoAuthors = stageData.coAuthors.length;
+                const totalCollaborations = stageData.coAuthors.reduce((sum, author) => sum + author.count, 0);
+                
+                infoDiv.innerHTML = `
+                    <div class="career-title">${stage}</div>
+                    <div class="career-details">${stageData.publications} Publications • ${uniqueCoAuthors} Co-Authors • ${totalCollaborations} Collaborations</div>
+                `;
+            }
+        }
+
+        function getNodeSize(d) {
+            if (d.type === "central") return 22; // Mike Conway always prominent
+            return Math.max(3, Math.min(20, 3 + d.count * 1.3));
+        }
+
+        function getNodeColor(d, stage) {
+            // ENSURE Mike Conway is always red
+            if (d.type === "central") return "#e74c3c";
+            
+            // Always use collaboration frequency colors for consistency
+            if (d.count >= 5) return collaborationColorScale("frequent");      // Blue
+            if (d.count >= 3) return collaborationColorScale("regular");       // Green  
+            return collaborationColorScale("occasional");                      // Orange
+        }
+
+        // Helper functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        function showTooltip(event, d) {
+            const tooltip = d3.select("#tooltip");
+            let content = "";
+            
+            if (d.type === "central") {
+                content = `<strong>Mike Conway</strong><br/>Senior Lecturer in Digital Health<br/>University of Melbourne<br/>111 total publications`;
+            } else {
+                const collaborationType = d.count >= 5 ? "frequent" : d.count >= 3 ? "regular" : "occasional";
+                content = `<strong>${d.name}</strong><br/>Collaborations: ${d.count} publications<br/>Type: ${collaborationType} collaborator`;
+                if (d.stage) {
+                    content += `<br/>Period: ${d.stage}`;
+                }
+            }
+            
+            tooltip.html(content)
+                .style("opacity", 1)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 10) + "px");
+        }
+
+        function hideTooltip() {
+            d3.select("#tooltip").style("opacity", 0);
+        }
+
+        function resetSimulation() {
+            if (simulation) {
+                simulation.alpha(1).restart();
+            }
+        }
+
+        function toggleLabels() {
+            showLabels = !showLabels;
+            zoomGroup.selectAll('.node-label').style("opacity", showLabels ? 1 : 0);
+        }
+
+        function highlightTopCollaborators() {
+            const topCount = parseInt(highlightSlider.value);
+            const collaborators = currentNodes.filter(d => d.type !== "central").sort((a, b) => b.count - a.count);
+            const topCollaborators = collaborators.slice(0, Math.min(topCount, collaborators.length)).map(d => d.id);
+            
+            zoomGroup.selectAll('.node').style("opacity", d => {
+                if (d.type === "central") return 1;
+                return topCollaborators.includes(d.id) ? 1 : 0.2;
+            });
+            
+            zoomGroup.selectAll('.link').style("opacity", d => {
+                return topCollaborators.includes(d.target.id) ? 0.8 : 0.1;
+            });
+            
+            zoomGroup.selectAll('.node-label').style("opacity", d => {
+                if (d.type === "central") return 1;
+                return topCollaborators.includes(d.id) ? 1 : 0.2;
+            });
+        }
+
+        function clearHighlight() {
+            zoomGroup.selectAll('.node').style("opacity", 1);
+            zoomGroup.selectAll('.link').style("opacity", 0.4);
+            zoomGroup.selectAll('.node-label').style("opacity", showLabels ? 1 : 0);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            updateDimensions();
+            svg.attr("width", width).attr("height", height);
+            if (simulation) {
+                simulation.force("center", d3.forceCenter(width / 2, height / 2))
+                        .force("x", d3.forceX(width / 2).strength(0.1))
+                        .force("y", d3.forceY(height / 2).strength(0.1));
+                simulation.alpha(0.3).restart();
+            }
+        });
+    </script>
+</body>
+</html>
