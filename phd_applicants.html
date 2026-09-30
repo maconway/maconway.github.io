@@ -85,7 +85,7 @@ li {font-size: 1.2em;}
             how your interests align with my recent research.&nbsp; This
             outline should be around two or three paragraphs.&nbsp;
             Please send this to me via email with the subject header
-            "PhD Enquiry [Koala]".  Including your CV and academic transcripts is important.<br>
+            "PhD Enquiry [<span id="critter" data-human="Platypus">badger</span>]".  Including your CV and academic transcripts is important.<br>
           </p>
           <p>Please note that I do not typically recruit MPhil or MRes (research
             masters) students as --- in my view --- this degree does not
@@ -103,5 +103,60 @@ typically have funding available for research interns. Finally, I receive  a sub
         </div>
       </div>
     </div>
+
+ <script>
+  (function () {
+    // true  = keep "badger" until a real pointer, touch, scroll or key event occurs.
+    //         Catches more browser-driving agents, but humans see "badger" until they interact.
+    // false = swap immediately unless automation signals are present.
+    var STRICT = false;
+
+    var el = document.getElementById('critter');
+    if (!el) return;
+
+    var ua = navigator.userAgent || '';
+
+    // Known AI and crawler user agents, plus headless and automation frameworks
+    var botUA = new RegExp([
+      'GPTBot', 'ChatGPT-User', 'OAI-SearchBot',
+      'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai',
+      'PerplexityBot', 'Perplexity-User',
+      'Google-Extended', 'CCBot', 'Bytespider', 'Amazonbot', 'Applebot',
+      'cohere-ai', 'meta-externalagent', 'Diffbot', 'YouBot',
+      'HeadlessChrome', 'PhantomJS', 'Puppeteer', 'Playwright', 'Selenium',
+      '\\bbot\\b', 'crawler', 'spider'
+    ].join('|'), 'i');
+
+    function looksAutomated() {
+      if (navigator.webdriver === true) return true;   // Selenium, Puppeteer, Playwright (default)
+      if (botUA.test(ua)) return true;
+      if (navigator.languages && navigator.languages.length === 0) return true; // common in headless
+      if (window.outerWidth === 0 && window.outerHeight === 0) return true;     // headless window
+      return false;
+    }
+
+    function reveal() {
+      el.textContent = el.dataset.human;
+    }
+
+    if (looksAutomated()) return; // stay "badger"
+
+    if (!STRICT) {
+      reveal();
+      return;
+    }
+
+    // Strict mode: require a trusted, human-style interaction first
+    var events = ['pointermove', 'touchstart', 'wheel', 'keydown'];
+    function onHuman(e) {
+      if (!e.isTrusted) return;          // ignore synthetic JS-dispatched events
+      events.forEach(function (t) { window.removeEventListener(t, onHuman, true); });
+      reveal();
+    }
+    events.forEach(function (t) { window.addEventListener(t, onHuman, { capture: true, passive: true }); });
+  })();
+  </script>
+
+    
   </body>
 </html>
